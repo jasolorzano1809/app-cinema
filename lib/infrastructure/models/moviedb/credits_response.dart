@@ -37,7 +37,7 @@ class Cast {
   final double popularity;
   final String? profilePath;
   final int? castId;
-  final String character;
+  final String? character;
   final String creditId;
   final int? order;
   final String? department;
@@ -73,7 +73,7 @@ class Cast {
         character: json["character"],
         creditId: json["credit_id"],
         order: json["order"],
-        department: json["department"]!,
+        department: json["department"],
         job: json["job"],
       );
 

@@ -1,6 +1,8 @@
+
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/presentation/providers/movies/movie_info_provider.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -23,6 +25,7 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
 
     ref.read(movieInfoProvider.notifier).loadMovie(widget.movieId);
     ref.read(actorsByMovieProvider.notifier).loadActors(widget.movieId);
+
 
   }
 
@@ -116,10 +119,12 @@ class _MovieDetails extends StatelessWidget {
           ),
         ),
         //todo mostrar actores
+
         _ActorsByMovie(movieid: movie.id.toString()),
       
         const SizedBox(
           height: 50,
+
         )
       ],
     );
@@ -139,21 +144,25 @@ class _CustomSliverAppbar extends StatelessWidget {
       foregroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+
         // title: Text(
         //   movie.title,
         //   style: const TextStyle(fontSize: 20),
         //   textAlign: TextAlign.start,
         // ),
+
         background: Stack(
           children: [
             SizedBox.expand(
               child: Image.network(
                 movie.posterPath,
                 fit: BoxFit.cover,
+
                 loadingBuilder: (context, child, loadingProgress) {
                   if (loadingProgress != null) return const SizedBox();
                   return FadeIn(child: child);
                 },
+
               ),
             ),
             const SizedBox.expand(
@@ -179,6 +188,7 @@ class _CustomSliverAppbar extends StatelessWidget {
     );
   }
 }
+
 
 class _ActorsByMovie extends ConsumerWidget {
 
@@ -242,3 +252,4 @@ class _ActorsByMovie extends ConsumerWidget {
     );
   }
 }
+

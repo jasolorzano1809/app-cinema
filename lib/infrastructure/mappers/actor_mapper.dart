@@ -9,5 +9,7 @@ class ActorMaper {
       profilePath: (cast.profilePath != null)
           ? 'https://image.tmdb.org/t/p/w500${cast.profilePath}'
           : 'https://static.vecteezy.com/system/resources/thumbnails/009/734/564/small/default-avatar-profile-icon-of-social-media-user-vector.jpg',
+
       character: cast.character!);
+
 }

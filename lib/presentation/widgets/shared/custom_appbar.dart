@@ -34,6 +34,7 @@ class CustomAppbar extends ConsumerWidget {
                 ),
                 const Spacer(),
                 IconButton(onPressed: () {
+
                   
 
                   //todo
@@ -47,6 +48,7 @@ class CustomAppbar extends ConsumerWidget {
                     searchMovies:ref.read(searchedMoviesProvider.notifier).searchMoviesByQuery
                    
                 )
+
                    ).then((movie){
                       if(movie == null) return;
                       context.push('/movie/${ movie.id}');

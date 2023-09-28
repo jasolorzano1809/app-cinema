@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+
 import 'package:animate_do/animate_do.dart';
 import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class SearchMovieDelegate extends SearchDelegate<Movie?>{
 
 
 final SearchMoviesCallback searchMovies;
+
  List<Movie> initialMovies;
 
 StreamController <List<Movie>> debounceMovies = StreamController.broadcast();
@@ -75,12 +77,14 @@ Timer? _debounceTimer;
     }
     );
   }
+
   @override
   String get searchFieldLabel => 'Buscar pelicula';
 
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
+
 
       StreamBuilder(
         initialData: false,
@@ -98,40 +102,49 @@ Timer? _debounceTimer;
       } 
 
       return FadeIn(
+
         animate: query.isNotEmpty,
         //duration: const Duration(microseconds: 200),
         child: IconButton(onPressed: () => query= '', 
          icon: const Icon(Icons.clear)),
+
       );
       },
 
 
       ),
             
+
       ]; 
   }
 
   @override
   Widget? buildLeading(BuildContext context) {
+
    return IconButton(onPressed: () {
       clearStreams();
       close(context, null); 
     
    },
+
    icon: const Icon(Icons.arrow_back_ios_new_rounded));
      
   }
 
   @override
   Widget buildResults(BuildContext context) {
+
     return _buildResultsAndSuggestions();
+
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
 
+
     _onQueryChanged(query);
     return _buildResultsAndSuggestions();
+
   }
 
 
